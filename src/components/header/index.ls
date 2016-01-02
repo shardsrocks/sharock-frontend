@@ -1,8 +1,7 @@
 require('./index.less')
 
 module.exports =
-  name: \main
+  name: \header
   template: require('./index.jade')()
   ready: ->
-    console.log \main
-
+    console.log \header
