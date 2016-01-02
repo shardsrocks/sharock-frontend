@@ -34,6 +34,19 @@ gulp.task \webpack-watch, [\webpack-preload], ->
 gulp.task \webpack-preload, []
 
 
+# ----- less ---------------------------------------------------------
+
+gulp.task \less, ->
+  gulp.src('src/*.less')
+    .pipe $.plumber()
+    .pipe $.less()
+    .pipe gulp.dest('dist')
+
+
+gulp.task \less-watch, ->
+  gulp.watch 'src/*.less', [\less]
+
+
 # ----- jade ---------------------------------------------------------
 
 gulp.task \jade, ->
@@ -70,8 +83,8 @@ gulp.task \server, ->
 
 # ----- build --------------------------------------------------------
 
-gulp.task \build, [\webpack, \jade]
-gulp.task \build-watch, [\jade]
+gulp.task \build, [\webpack, \jade, \less]
+gulp.task \build-watch, [\jade, \less]
 
 
 # ----- watch --------------------------------------------------------
@@ -80,7 +93,7 @@ gulp.task \watch, ->
   run-sequence(
     \build-watch,
     \server,
-    [\jade-watch, \webpack-watch]
+    [\jade-watch, \less-watch, \webpack-watch]
   )
 
 

@@ -24,9 +24,11 @@
   },
   "license": "MIT",
   "devDependencies": {
+    "css-loader": "^0.23.1",
     "file-loader": "^0.8.5",
     "gulp": "^3.9.0",
     "gulp-jade": "^1.1.0",
+    "gulp-less": "^3.0.5",
     "gulp-load-plugins": "^1.1.0",
     "gulp-plumber": "^1.0.1",
     "gulp-server-livereload": "^1.5.4",
@@ -34,6 +36,8 @@
     "jade": "^1.11.0",
     "jade-loader": "^0.8.0",
     "json-loader": "^0.5.4",
+    "less": "^2.5.3",
+    "less-loader": "^2.2.2",
     "livescript": "^1.4.0",
     "livescript-loader": "^0.1.5",
     "run-sequence": "^1.1.5",
@@ -42,6 +46,8 @@
     "webpack": "^1.12.9"
   },
   "dependencies": {
-    "prelude-ls": "^1.1.2"
+    "prelude-ls": "^1.1.2",
+    "vue": "^1.0.13",
+    "vue-router": "^0.7.7"
   }
 }
