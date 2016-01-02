@@ -31,7 +31,6 @@
     "gulp-less": "^3.0.5",
     "gulp-load-plugins": "^1.1.0",
     "gulp-plumber": "^1.0.1",
-    "gulp-server-livereload": "^1.5.4",
     "gulp-util": "^3.0.7",
     "jade": "^1.11.0",
     "jade-loader": "^0.8.0",
@@ -46,6 +45,9 @@
     "webpack": "^1.12.9"
   },
   "dependencies": {
+    "dotenv": "^1.2.0",
+    "express": "^4.13.3",
+    "morgan": "^1.6.1",
     "prelude-ls": "^1.1.2",
     "vue": "^1.0.13",
     "vue-router": "^0.7.7"

@@ -63,22 +63,7 @@ gulp.task \jade-watch, ->
 # ----- server -------------------------------------------------------
 
 gulp.task \server, ->
-  port = 8080
-  gutil.log "Listening: http://0.0.0.0:#{port} (frontend)"
-  gutil.log "Listening: http://0.0.0.0:#{port}/api (API server)"
-
-  gulp.src('dist')
-    .pipe $.server-livereload(
-      livereload: true
-      directory-listing: false
-      open: false
-      host: '0.0.0.0'
-      port: port
-      proxies: [
-        source: '/api'
-        target: 'http://localhost:3000/'
-      ]
-    )
+  spawn './bin/server', [], stdio: 'inherit'
 
 
 # ----- build --------------------------------------------------------

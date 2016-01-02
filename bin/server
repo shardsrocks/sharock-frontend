@@ -1,0 +1,40 @@
+#!/usr/bin/env node
+'use strict';
+
+require('dotenv').load();
+
+var fs = require('fs');
+var express = require('express');
+var morgan = require('morgan');
+
+var app = express();
+
+// Middleware
+app.use(morgan('combined'));
+app.use(express.static('dist'));
+
+// Routing
+app.set('views', 'dist/');
+app.get('/*', function (req, res) {
+  fs.readFile('dist/index.html', function (err, data) {
+    if (err) {
+      console.error(err);
+      return res.sendStatus(500);
+    }
+    return res.send(data.toString('utf-8'));
+  });
+});
+
+// Configure
+var host = process.env.FRONT_HOST || '0.0.0.0';
+var port = parseInt(process.env.FRONT_PORT, 10) || 8080;
+
+// Listening
+console.log('Listening: http://' + host + ':' + port);
+
+if (isNaN(port)) {
+  console.log('Invalid port numbers');
+  process.exit(1);
+}
+
+app.listen(port);
