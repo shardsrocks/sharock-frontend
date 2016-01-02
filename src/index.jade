@@ -5,10 +5,10 @@ html(lang="en")
     link(rel="stylesheet", href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css")
     link(rel="stylesheet", href="//fonts.googleapis.com/css?family=Carme")
     link(rel="stylesheet", href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css")
-    link(rel="stylesheet", href="/main.css")
+    link(rel="stylesheet", href="#{STATIC_SERVER_URL}/main.css")
     title Shards Rocks
 
   body
     sharock-main
-    script(src="/bundle.js")
+    script(src="#{STATIC_SERVER_URL}/bundle.js")
 

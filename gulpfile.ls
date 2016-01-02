@@ -2,6 +2,7 @@ require! {
   child_process: {spawn}
 
   'prelude-ls': {union}
+  'require-clean'
 
   gulp
   'gulp-util': gutil
@@ -49,10 +50,10 @@ gulp.task \less-watch, ->
 
 # ----- jade ---------------------------------------------------------
 
-gulp.task \jade, ->
+gulp.task \jade, [\dotenv], ->
   gulp.src('src/*.jade')
     .pipe $.plumber()
-    .pipe $.jade()
+    .pipe $.jade(locals: require-clean('./src/env.json'))
     .pipe gulp.dest('dist')
 
 
@@ -71,6 +72,19 @@ gulp.task \assets-watch, ->
   gulp.watch 'assets/**/*', [\assets]
 
 
+# ----- dotenv -------------------------------------------------------
+
+gulp.task \dotenv, ->
+  gulp.src('.env')
+    .pipe $.dotenv()
+    .pipe $.rename('env.json')
+    .pipe gulp.dest('src/')
+
+
+gulp.task \dotenv-watch, ->
+  gulp.watch '.env', [\dotenv \jade]
+
+
 # ----- server -------------------------------------------------------
 
 gulp.task \server, ->
@@ -79,8 +93,8 @@ gulp.task \server, ->
 
 # ----- build --------------------------------------------------------
 
-gulp.task \build, [\webpack, \jade, \less, \assets]
-gulp.task \build-watch, [\assets, \jade, \less]
+gulp.task \build, [\webpack \build-watch]
+gulp.task \build-watch, [\jade \less \assets \dotenv]
 
 
 # ----- watch --------------------------------------------------------
@@ -89,7 +103,7 @@ gulp.task \watch, ->
   run-sequence(
     \build-watch,
     \server,
-    [\jade-watch, \less-watch, \webpack-watch, \assets-watch]
+    [\jade-watch \less-watch \webpack-watch \assets-watch \dotenv-watch]
   )
 
 
