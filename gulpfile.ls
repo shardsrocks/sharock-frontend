@@ -13,7 +13,7 @@ $ = require('gulp-load-plugins')()
 
 # ----- default ------------------------------------------------------
 
-runWebpack = (opt) ->
+run-webpack = (opt) ->
   defaults = [
     '--colors'
     '--progress'
@@ -24,21 +24,35 @@ runWebpack = (opt) ->
 
 
 gulp.task \webpack, [\webpack-preload], ->
-  runWebpack []
+  run-webpack []
 
 
 gulp.task \webpack-watch, [\webpack-preload], ->
-  runWebpack ['--watch']
+  run-webpack ['--watch']
 
 
 gulp.task \webpack-preload, []
+
+
+# ----- jade ---------------------------------------------------------
+
+gulp.task \jade, ->
+  gulp.src('src/*.jade')
+    .pipe $.plumber()
+    .pipe $.jade()
+    .pipe gulp.dest('dist')
+
+
+gulp.task \jade-watch, ->
+  gulp.watch 'src/*.jade', [\jade]
 
 
 # ----- server -------------------------------------------------------
 
 gulp.task \server, ->
   port = 8080
-  gutil.log "Listening: http://0.0.0.0:#{port}"
+  gutil.log "Listening: http://0.0.0.0:#{port} (frontend)"
+  gutil.log "Listening: http://0.0.0.0:#{port}/api (API server)"
 
   gulp.src('dist')
     .pipe $.server-livereload(
@@ -47,21 +61,27 @@ gulp.task \server, ->
       open: false
       host: '0.0.0.0'
       port: port
+      proxies: [
+        source: '/api'
+        target: 'http://localhost:3000/'
+      ]
     )
+
+
+# ----- build --------------------------------------------------------
+
+gulp.task \build, [\webpack, \jade]
+gulp.task \build-watch, [\jade]
 
 
 # ----- watch --------------------------------------------------------
 
 gulp.task \watch, ->
   run-sequence(
+    \build-watch,
     \server,
-    \webpack-watch
+    [\jade-watch, \webpack-watch]
   )
-
-
-# ----- build --------------------------------------------------------
-
-gulp.task \build, [\webpack]
 
 
 # ----- default ------------------------------------------------------
