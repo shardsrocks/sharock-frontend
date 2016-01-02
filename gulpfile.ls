@@ -12,7 +12,7 @@ require! {
 $ = require('gulp-load-plugins')()
 
 
-# ----- default ------------------------------------------------------
+# ----- webpack ------------------------------------------------------
 
 run-webpack = (opt, prod) ->
   defaults = [
