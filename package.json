@@ -1,0 +1,24 @@
+{
+  "private": true,
+  "name": "sharock-frontend",
+  "version": "0.1.0",
+  "description": "Frontend for Sharock",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shardsrocks/sharock-frontend"
+  },
+  "bugs": {
+    "url": "https://github.com/shardsrocks/sharock-frontend/issues"
+  },
+  "homepage": "https://github.com/shardsrocks/sharock-frontend",
+  "author": {
+    "name": "Pine Mizune",
+    "email": "pinemz@gmail.com",
+    "url": "https://github.com/pine613"
+  },
+  "license": "MIT"
+}
