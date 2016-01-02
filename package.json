@@ -5,6 +5,8 @@
   "description": "Frontend for Sharock",
   "main": "index.js",
   "scripts": {
+    "build": "gulp build",
+    "watch": "gulp watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -20,5 +22,24 @@
     "email": "pinemz@gmail.com",
     "url": "https://github.com/pine613"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "file-loader": "^0.8.5",
+    "gulp": "^3.9.0",
+    "gulp-load-plugins": "^1.1.0",
+    "gulp-server-livereload": "^1.5.4",
+    "gulp-util": "^3.0.7",
+    "jade": "^1.11.0",
+    "jade-loader": "^0.8.0",
+    "json-loader": "^0.5.4",
+    "livescript": "^1.4.0",
+    "livescript-loader": "^0.1.5",
+    "run-sequence": "^1.1.5",
+    "style-loader": "^0.13.0",
+    "url-loader": "^0.5.7",
+    "webpack": "^1.12.9"
+  },
+  "dependencies": {
+    "prelude-ls": "^1.1.2"
+  }
 }
