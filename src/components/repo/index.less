@@ -22,15 +22,49 @@
   }
 
   h3 {
+    margin-top: 52px;
+
     .inner {
       display: inline-block;
-      padding: 6px 10px;
+      margin-left: 12px;
+      padding: 7px 10px;
       background-color: @color-primary-0;
       color: #fff;
       font-size: 18px;
 
       i {
         margin-right: 8px;
+      }
+    }
+  }
+
+  .sharock-repo-description {
+    padding-left: 14px;
+  }
+
+  .sharock-repo-dependencies {
+    margin-left: 12px;
+    border-width: 0 1px;
+    border-color: @color-primary-1;
+    width: 700px;
+
+    td, th {
+      border-color: @color-primary-1;
+      text-align: center;
+    }
+
+    thead {
+      background-color: transparent;
+      border-bottom: 3px double @color-primary-1;
+
+      th {
+        font-weight: bold;
+      }
+    }
+
+    tbody {
+      th {
+        font-weight: normal;
       }
     }
   }

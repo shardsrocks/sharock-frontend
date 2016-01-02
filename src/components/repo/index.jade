@@ -12,14 +12,62 @@ div.sharock-repo
     a.sharock-repo-link(:href="repoLink")
       span.sharock-repo-repo {{ repo }}
 
+
+  p.sharock-repo-description
+    // FIXME: temporary value
+    | {{ repo }}'s dependencies
+
   h3
     span.inner
       i.fa.fa-cogs
       | Dependencies
 
+  table.sharock-repo-dependencies.pure-table
+    thead
+      tr
+        th Dependency
+        th Required
+        th Matched
+        th Latest
+        th Status
+    tfoot
+    tbody
+      tr
+        th dummy
+        th ~> 0.1.0
+        th 0.1.0
+        th 0.1.0
+        th
+          sharock-status-icon(status="success")
+      tr
+        th dummy
+        th ~> 0.1.0
+        th 0.1.0
+        th 0.1.0
+        th
+          sharock-status-icon(status="warning")
+
   h3
     span.inner
       i.fa.fa-code
       | Development dependencies
+
+  table.sharock-repo-dependencies.pure-table
+    thead
+      tr
+        th Dependency
+        th Required
+        th Matched
+        th Latest
+        th Status
+    tfoot
+    tbody
+      tr
+        th dummy
+        th ~> 0.1.0
+        th 0.1.0
+        th 0.1.0
+        th
+          sharock-status-icon(status="error")
 
   // img(src="/assets/img/loading.gif")

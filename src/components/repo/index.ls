@@ -5,7 +5,6 @@ module.exports =
   template: require('./index.jade')()
   ready: ->
     console.log "repo ready"
-    console.log @$route
 
   computed:
     path: -> @$route.path
