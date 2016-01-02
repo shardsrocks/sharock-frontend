@@ -1,5 +1,5 @@
 require('./index.less')
 
 module.exports =
-  name: \header
+  name: \footer
   template: require('./index.jade')()
