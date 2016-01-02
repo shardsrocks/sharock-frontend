@@ -3,6 +3,8 @@ require! {
   webpack
 }
 
+prod = process.env.WEBPACK_ENV == 'production'
+
 module.exports =
   context: __dirname
   entry: './src/main.ls'
@@ -10,7 +12,6 @@ module.exports =
     path: join(__dirname, 'dist')
     filename: 'bundle.js'
 
-  devtool: 'inline-source-map'
   module:
     loaders: [
       { test: /\.ls/, loader: 'livescript-loader' }
@@ -19,6 +20,18 @@ module.exports =
       { test: /\.less$/, loader: 'style!css!less' }
       { test: /\.gif$/, loader: 'url-loader' }
     ]
+
+  devtool: if prod then null else 'inline-source-map'
+  plugins: if prod
+    [
+      new webpack.optimize.UglifyJsPlugin(
+        compressor:
+          warnings: false
+        mangle: false
+      )
+    ]
+  else
+    []
 
   resolve:
     extensions: ['', '.js', '.ls', '.json']

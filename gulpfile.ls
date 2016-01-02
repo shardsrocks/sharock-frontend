@@ -14,18 +14,33 @@ $ = require('gulp-load-plugins')()
 
 # ----- default ------------------------------------------------------
 
-run-webpack = (opt) ->
+run-webpack = (opt, prod) ->
   defaults = [
     '--colors'
     '--progress'
     '--display-chunks'
   ]
   opt = union opt, defaults
+
+
+  message = if opt.length > 0
+    "Run webpack with options `#{opt.join(' ')}`"
+  else
+    'Run webpack without options'
+
+  message += ' with optimize' if prod
+  gutil.log message
+
+  process.env.WEBPACK_ENV = if prod then 'production' else 'development'
   spawn 'webpack', opt, stdio: 'inherit'
 
 
 gulp.task \webpack, [\webpack-preload], ->
   run-webpack []
+
+
+gulp.task \webpack-prod, [\webpack-preload], ->
+  run-webpack [], true
 
 
 gulp.task \webpack-watch, [\webpack-preload], ->
@@ -94,7 +109,9 @@ gulp.task \server, ->
 # ----- build --------------------------------------------------------
 
 gulp.task \build, [\webpack \build-watch]
+gulp.task \build-prod, [\webpack-prod \build-prod-watch]
 gulp.task \build-watch, [\jade \less \assets \dotenv]
+gulp.task \build-prod-watch, [\jade \less \assets \dotenv]
 
 
 # ----- watch --------------------------------------------------------
