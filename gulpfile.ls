@@ -52,10 +52,20 @@ gulp.task \webpack-preload, []
 
 # ----- less ---------------------------------------------------------
 
-gulp.task \less, ->
+run-less = (prod) ->
   gulp.src('src/*.less')
     .pipe $.plumber()
     .pipe $.less()
+    .pipe $.if(prod, $.cssnano())
+
+
+gulp.task \less, ->
+  run-less()
+    .pipe gulp.dest('dist')
+
+
+gulp.task \less-prod, ->
+  run-less(true)
     .pipe gulp.dest('dist')
 
 
@@ -108,17 +118,17 @@ gulp.task \server, ->
 
 # ----- build --------------------------------------------------------
 
-gulp.task \build, [\webpack \build-watch]
-gulp.task \build-prod, [\webpack-prod \build-prod-watch]
-gulp.task \build-watch, [\jade \less \assets \dotenv]
-gulp.task \build-prod-watch, [\jade \less \assets \dotenv]
+gulp.task \build, [\webpack \build-without-webpack]
+gulp.task \build-prod, [\webpack-prod \build-prod-without-webpack]
+gulp.task \build-without-webpack, [\jade \less \assets \dotenv]
+gulp.task \build-prod-without-webpack, [\jade \less-prod \assets \dotenv]
 
 
 # ----- watch --------------------------------------------------------
 
 gulp.task \watch, ->
   run-sequence(
-    \build-watch,
+    \build-without-webpack,
     \server,
     [\jade-watch \less-watch \webpack-watch \assets-watch \dotenv-watch]
   )
