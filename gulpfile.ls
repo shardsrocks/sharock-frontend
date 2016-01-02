@@ -60,6 +60,17 @@ gulp.task \jade-watch, ->
   gulp.watch 'src/*.jade', [\jade]
 
 
+# ----- assets -------------------------------------------------------
+
+gulp.task \assets, ->
+  gulp.src('assets/**/*')
+    .pipe gulp.dest('dist/assets')
+
+
+gulp.task \assets-watch, ->
+  gulp.watch 'assets/**/*', [\assets]
+
+
 # ----- server -------------------------------------------------------
 
 gulp.task \server, ->
@@ -68,8 +79,8 @@ gulp.task \server, ->
 
 # ----- build --------------------------------------------------------
 
-gulp.task \build, [\webpack, \jade, \less]
-gulp.task \build-watch, [\jade, \less]
+gulp.task \build, [\webpack, \jade, \less, \assets]
+gulp.task \build-watch, [\assets, \jade, \less]
 
 
 # ----- watch --------------------------------------------------------
@@ -78,7 +89,7 @@ gulp.task \watch, ->
   run-sequence(
     \build-watch,
     \server,
-    [\jade-watch, \less-watch, \webpack-watch]
+    [\jade-watch, \less-watch, \webpack-watch, \assets-watch]
   )
 
 

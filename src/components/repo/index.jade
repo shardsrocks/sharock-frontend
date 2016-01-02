@@ -1,0 +1,21 @@
+div.sharock-repo
+  h2(v-cloak)
+    a.sharock-repo-host(:href="hostLink")
+      i.fa.fa-github(v-show="github")
+      i.fa.fa-bitbucket(v-show="bitbucket")
+
+    a.sharock-owner-link(:href="ownerLink")
+      span.sharock-repo-owner {{ owner }}
+
+    | /
+
+    a.sharock-repo-link(:href="repoLink")
+      span.sharock-repo-repo {{ repo }}
+
+  h3
+    | Dependencies
+
+  h3
+    | Development dependencies
+
+  // img(src="/assets/img/loading.gif")

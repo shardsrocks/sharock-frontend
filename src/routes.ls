@@ -1,20 +1,24 @@
 require! {
-  vue: Vue
   'vue-router': VueRouter
 }
 
 module.exports = ->
-  Foo = Vue.extend()
-
   router = new VueRouter(
     hashbang: false
     history: true
   )
 
   router.map(
-    '/': {
-      component: Foo
-    }
+    '/':
+      component: require('./components/index/index')
+    '/about':
+      component: require('./components/about')
+    '/github/:owner/:repo':
+      name: 'github'
+      component: require('./components/repo')
+    '/bitbucket/:owner/:repo':
+      name: 'bitbucket'
+      component: require('./components/repo')
   )
 
   router
