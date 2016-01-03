@@ -33,7 +33,7 @@ var port = parseInt(process.env.FRONT_PORT, 10) || 8080;
 console.log('Listening: http://' + host + ':' + port);
 
 if (isNaN(port)) {
-  console.log('Invalid port numbers');
+  console.log('Invalid port number');
   process.exit(1);
 }
 
