@@ -48,12 +48,12 @@
     "run-sequence": "^1.1.5",
     "style-loader": "^0.13.0",
     "url-loader": "^0.5.7",
-    "webpack": "^1.12.9"
-  },
-  "dependencies": {
+    "webpack": "^1.12.9",
     "dotenv": "^1.2.0",
     "express": "^4.13.3",
-    "morgan": "^1.6.1",
+    "morgan": "^1.6.1"
+  },
+  "dependencies": {
     "prelude-ls": "^1.1.2",
     "vue": "^1.0.13",
     "vue-resource": "^0.5.1",
