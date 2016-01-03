@@ -1,4 +1,4 @@
-# Sharock Frontend
+# Sharock Frontend [![Dependency Status](https://david-dm.org/shardsrocks/sharock-frontend.svg)](https://david-dm.org/shardsrocks/sharock-frontend) [![devDependency Status](https://david-dm.org/shardsrocks/sharock-frontend/dev-status.svg)](https://david-dm.org/shardsrocks/sharock-frontend#info=devDependencies)
 
 ## Dependencies
 
