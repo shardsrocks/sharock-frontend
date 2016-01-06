@@ -1,4 +1,5 @@
 require! {
+  fs
   child_process: {spawn}
 
   'prelude-ls': {union}
@@ -10,6 +11,11 @@ require! {
 }
 
 $ = require('gulp-load-plugins')()
+
+# ----- bootstrap ----------------------------------------------------
+
+console.error('[INFO] Checking `.env` file');
+fs.statSync('.env');
 
 
 # ----- webpack ------------------------------------------------------
