@@ -13,22 +13,24 @@ div.sharock-repo
       span.sharock-repo-repo {{ repo }}
 
 
-  p.sharock-repo-description
-    // FIXME: temporary value
-    | {{ repo }}'s dependencies
+  div.sharock-repo-syncing(v-show="syncing")
+    sharock-syncing
 
-  h3
-    span.inner
-      i.fa.fa-cogs
-      | Dependencies
+  div(v-else)
+    p.sharock-repo-description
+      // FIXME: temporary value
+      | {{ repo }}'s dependencies
 
-  sharock-dependencies
+    h3
+      span.inner
+        i.fa.fa-cogs
+        | Dependencies
 
-  h3
-    span.inner
-      i.fa.fa-code
-      | Development dependencies
+    sharock-dependencies(:deps="deps")
 
-  sharock-dependencies
+    h3
+      span.inner
+        i.fa.fa-code
+        | Development dependencies
 
-  // img(src="/assets/img/loading.gif")
+    sharock-dependencies(:deps="devDeps")

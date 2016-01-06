@@ -1,5 +1,8 @@
 div.sharock-dependencies
-  table.sharock-dependencies-table.pure-table
+  div.sharock-dependencies-none(v-cloak, v-show="isEmpty")
+    | None
+
+  table.sharock-dependencies-table.pure-table(v-cloak, v-else)
     thead
       tr
         th Dependency
@@ -9,24 +12,11 @@ div.sharock-dependencies
         th Status
     tfoot
     tbody
-      tr
-        th dummy
-        th ~> 0.1.0
-        th 0.1.0
-        th 0.1.0
-        th
-          sharock-status-icon(status="success")
-      tr
-        th dummy
-        th ~> 0.1.0
-        th 0.1.0
-        th 0.1.0
-        th
-          sharock-status-icon(status="warning")
-      tr
-        th dummy
-        th ~> 0.1.0
-        th 0.1.0
-        th 0.1.0
-        th
-          sharock-status-icon(status="error")
+      tr(v-cloak, v-for="dep in deps")
+        td {{ dep.name }}
+        td {{ dep.requiredVersion }}
+        td {{ dep.matchedVersion }}
+        td {{ dep.latestVersion }}
+        td
+          sharock-status-icon(:status="dep.status")
+

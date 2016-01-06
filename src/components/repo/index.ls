@@ -6,6 +6,7 @@ module.exports =
   name: \repo
   template: require('./index.jade')()
   data: ->
+    syncing: false
     package: null
     package-deps: null
 
@@ -20,6 +21,17 @@ module.exports =
     bitbucket: -> @host == 'bitbucket'
 
     resource: -> @$resource("package/#{@host}/#{@owner}/#{@repo}")
+
+    deps-data: ->
+      try
+        JSON.parse(@package-deps.deps_data)
+      catch e
+        {}
+
+    status: -> @package-deps.status
+    dev-status: -> @package-deps.dev_status
+    deps: -> @deps-data.dependencies
+    dev-deps: -> @deps-data.developmentDependencies
 
     host-link: ->
       if @github
@@ -42,9 +54,10 @@ module.exports =
 
   route:
     activate: ->
-      @resource.get().then (res) ->
-        console.log @
-        console.log res
-        @package = res.data.package
-        @package-deps = res.data.package_deps
+      @resource.get().then (res) ~>
+        console.log res.data
+        @syncing = !res.data
+        if res.data
+          @package = res.data.package
+          @package-deps = res.data.package_deps
 

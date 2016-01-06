@@ -13,7 +13,7 @@ module.exports =
   computed:
     color: ->
       switch @status
-      | "success" => SUCCESS_COLOR
-      | "warning" => WARNING_COLOR
-      | "error"   => ERROR_COLOR
+      | "up_to_date" => SUCCESS_COLOR
+      | "pinned_out_of_date" => WARNING_COLOR
+      | "out_of_date" => ERROR_COLOR
       | otherwise => NORMAL_COLOR
