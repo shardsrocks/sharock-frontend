@@ -1,4 +1,6 @@
-# Sharock Frontend [![Dependency Status](https://david-dm.org/shardsrocks/sharock-frontend.svg)](https://david-dm.org/shardsrocks/sharock-frontend) [![devDependency Status](https://david-dm.org/shardsrocks/sharock-frontend/dev-status.svg)](https://david-dm.org/shardsrocks/sharock-frontend#info=devDependencies)
+# Sharock Frontend
+[![Dependency Status](https://david-dm.org/shardsrocks/sharock-frontend.svg)](https://david-dm.org/shardsrocks/sharock-frontend)
+[![devDependency Status](https://david-dm.org/shardsrocks/sharock-frontend/dev-status.svg)](https://david-dm.org/shardsrocks/sharock-frontend#info=devDependencies)
 
 ## Dependencies
 
@@ -21,7 +23,7 @@ $ npm run watch
 ```
 
 ## Test
-Not implemented yet :scream_cat:
+Not implemented yet :scream\_cat:
 
 ## License
 MIT License
