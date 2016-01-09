@@ -1,0 +1,14 @@
+div.sharock-repo-header
+  h2
+    a.sharock-repo-header-host(:href="hostLink")
+      i.fa.fa-github(v-show="github")
+      i.fa.fa-bitbucket(v-show="bitbucket")
+
+    a.sharock-repo-header-owner(:href="ownerLink")
+      | {{ owner }}
+
+    | /
+
+    a.sharock-repo-header-repo(:href="repoLink")
+      | {{ repo }}
+

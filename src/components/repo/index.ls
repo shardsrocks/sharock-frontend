@@ -1,5 +1,6 @@
 require! {
   './index.less':{}
+  '../../env.json': {API_SERVER_URL}
 }
 
 module.exports =
@@ -9,6 +10,8 @@ module.exports =
     syncing: false
     package: null
     package-deps: null
+    status-badge-url: null
+    dev-status-badge-url: null
 
 
   computed:
@@ -20,7 +23,7 @@ module.exports =
     github: -> @host == 'github'
     bitbucket: -> @host == 'bitbucket'
 
-    resource: -> @$resource("package/#{@host}/#{@owner}/#{@repo}")
+    resource: -> @$resource("api/package/#{@host}/#{@owner}/#{@repo}")
 
     deps-data: ->
       try
@@ -33,25 +36,6 @@ module.exports =
     deps: -> @deps-data.dependencies
     dev-deps: -> @deps-data.developmentDependencies
 
-    host-link: ->
-      if @github
-        "https://github.com/"
-      else if @bitbucket
-        "https://bitbucket.org/"
-
-    owner-link: ->
-      if @github
-        "https://github.com/#{@owner}"
-      else if @bitbucket
-        "https://bitbucket.org/#{@owner}/"
-
-    repo-link: ->
-      if @github
-        "https://github.com/#{@owner}/#{@repo}"
-      else if @bitbucket
-        "https://bitbucket.org/#{@owner}/#{@repo}"
-
-
   route:
     activate: ->
       @resource.get().then (res) ~>
@@ -60,4 +44,6 @@ module.exports =
         if res.data
           @package = res.data.package
           @package-deps = res.data.package_deps
+          @status-badge-url = "#{API_SERVER_URL}/#{res.data.status_badge_url}"
+          @dev-status-badge-url = "#{API_SERVER_URL}/#{res.data.dev_status_badge_url}"
 

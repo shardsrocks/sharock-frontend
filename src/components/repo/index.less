@@ -9,18 +9,6 @@
     color: @color-primary-4;
   }
 
-  .sharock-repo-host {
-    margin-right: 11px;
-  }
-
-  .sharock-repo-owner {
-    margin-right: 7px;
-  }
-
-  .sharock-repo-repo {
-    margin-left: 7px;
-  }
-
   h3 {
     margin-top: 52px;
 
@@ -39,7 +27,17 @@
   }
 
   .sharock-repo-description {
-    padding-left: 14px;
+    position: relative;
+
+    p {
+      padding-left: 14px;
+    }
+
+    .sharock-repo-repo-badge {
+      position: absolute;
+      top: 0;
+      right: 14px;
+    }
   }
 
   .sharock-repo-syncing {

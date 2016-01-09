@@ -13,6 +13,8 @@ module.exports = ->
       component: require('./components/index/index')
     '/about':
       component: require('./components/about')
+    '/badge':
+      component: require('./components/badge')
     '/github/:owner/:repo':
       name: 'github'
       component: require('./components/repo')

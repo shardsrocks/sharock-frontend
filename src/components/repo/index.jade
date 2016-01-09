@@ -1,25 +1,17 @@
 div.sharock-repo
-  h2(v-cloak)
-    a.sharock-repo-host(:href="hostLink")
-      i.fa.fa-github(v-show="github")
-      i.fa.fa-bitbucket(v-show="bitbucket")
-
-    a.sharock-owner-link(:href="ownerLink")
-      span.sharock-repo-owner {{ owner }}
-
-    | /
-
-    a.sharock-repo-link(:href="repoLink")
-      span.sharock-repo-repo {{ repo }}
-
+  div.sharock-repo-repo-header
+    sharock-repo-header
 
   div.sharock-repo-syncing(v-show="syncing")
     sharock-syncing
 
   div(v-else)
-    p.sharock-repo-description
-      // FIXME: temporary value
-      | {{ repo }}'s dependencies
+    div.sharock-repo-description
+      p
+        | {{ repo }}'s dependencies.
+
+      div.sharock-repo-repo-badge
+        sharock-repo-badge(:status-badge-url="statusBadgeUrl", :dev-status-badge-url="devStatusBadgeUrl")
 
     h3
       span.inner
