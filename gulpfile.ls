@@ -53,7 +53,7 @@ gulp.task \webpack-watch, [\webpack-preload], ->
   run-webpack ['--watch']
 
 
-gulp.task \webpack-preload, []
+gulp.task \webpack-preload, [\dotenv]
 
 
 # ----- less ---------------------------------------------------------
