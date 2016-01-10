@@ -113,7 +113,7 @@ gulp.task \dotenv, ->
 
 
 gulp.task \dotenv-watch, ->
-  gulp.watch '.env', [\dotenv \jade]
+  gulp.watch '.env', [\dotenv \webpack \jade]
 
 
 # ----- server -------------------------------------------------------
