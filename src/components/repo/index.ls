@@ -7,6 +7,9 @@ module.exports =
   name: \repo
   template: require('./index.jade')()
   data: ->
+    active: false
+    timer-id: null
+    interval-msec: 1000
     syncing: false
     package: null
     package-deps: null
@@ -34,16 +37,38 @@ module.exports =
     status: -> @package-deps.status
     dev-status: -> @package-deps.dev_status
     deps: -> @deps-data.dependencies
-    dev-deps: -> @deps-data.developmentDependencies
+    dev-deps: -> @deps-data.development-dependencies
 
-  route:
-    activate: ->
+  methods:
+    begin-sync: ->
+      clear-interval @timerId if @timer-id
+      @timer-id = set-interval @sync.bind(@), @interval-msec
+      @sync()
+
+    sync: ->
+      if @timer-id && !@active
+        clear-interval @timer-id
+        @timer-id = null
+
+      @send-request()
+
+    send-request: ->
       @resource.get().then (res) ~>
-        console.log res.data
         @syncing = !res.data
         if res.data
+          clear-interval @timer-id if @timer-id
+          @timer-id = null
           @package = res.data.package
           @package-deps = res.data.package_deps
           @status-badge-url = "#{API_SERVER_URL}/#{res.data.status_badge_url}"
           @dev-status-badge-url = "#{API_SERVER_URL}/#{res.data.dev_status_badge_url}"
 
+  route:
+    activate: (transition) ->
+      @active = true
+      @begin-sync()
+      transition.next()
+
+    deactivate: (transition) ->
+      @active = false
+      transition.next()

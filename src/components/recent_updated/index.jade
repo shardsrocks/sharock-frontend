@@ -1,0 +1,6 @@
+div.sharock-recent-updated
+  h2 Recent Updated Shards
+
+  ul.sharock-recent-updated-list
+    li(v-for="package in packages", v-cloak)
+      sharock-link(:host="package.host", :owner="package.owner", :repo="package.repo")

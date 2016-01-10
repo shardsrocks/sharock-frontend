@@ -1,0 +1,14 @@
+span.sharock-link
+  a.sharock-link-host(:href="repoLink")
+    i.fa.fa-github(v-show="github")
+    i.fa.fa-bitbucket(v-show="bitbucket")
+
+  a(:href="sharockLink", v-cloak)
+    span.sharock-link-owner
+      | {{ owner }}
+
+    | /
+
+    span.sharock-link-repo
+      | {{ repo }}
+
