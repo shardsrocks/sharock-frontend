@@ -1,6 +1,5 @@
 require! {
   './index.less': {}
-  '../../config/static': {endpoint}
 }
 
 module.exports =
@@ -13,7 +12,7 @@ module.exports =
     bitbucket: -> @host == 'bitbucket'
 
     sharock-link: ->
-      "#{endpoint}/#{@host}/#{@owner}/#{@repo}"
+      "/#{@host}/#{@owner}/#{@repo}"
 
     repo-link: ->
       if @github
