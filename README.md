@@ -12,6 +12,7 @@
 ## Dependencies
 For more information, see `package.json`.
 
+- Node.js v4.2.4
 - [Vue.js](http://jp.vuejs.org/)
 - [Pure](http://purecss.io/)
 
