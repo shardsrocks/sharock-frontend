@@ -9,7 +9,9 @@ module.exports =
   data: ->
     active: false
     timer-id: null
-    interval-msec: 1000
+    interval-msec: 3000
+    retry-count: 0
+    retry-count-max: 10
     syncing: false
     package: null
     package-deps: null
@@ -46,9 +48,16 @@ module.exports =
       @sync()
 
     sync: ->
+      @retry-count++
+      if @retry-count >= @retry-count-max
+        clear-interval @timer-id if @timer-id
+        @timer-id = null
+        return
+
       if @timer-id && !@active
         clear-interval @timer-id
         @timer-id = null
+        return
 
       @send-request()
 
