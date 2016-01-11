@@ -106,11 +106,19 @@ gulp.task \assets-watch, ->
 
 # ----- dotenv -------------------------------------------------------
 
-gulp.task \dotenv, ->
-  gulp.src('.env')
+runDotenv = ->
+  gulp.src(it)
     .pipe $.dotenv!
     .pipe $.rename('env.json')
     .pipe gulp.dest('src/')
+
+
+gulp.task \dotenv, ->
+  runDotenv('.env')
+
+
+gulp.task \dotenv-test, ->
+  runDotenv('.env.test')
 
 
 gulp.task \dotenv-watch, ->
@@ -143,7 +151,7 @@ gulp.task \watch, ->
 
 # ----- karma -------------------------------------------------------
 
-gulp.task \karma, [\dotenv], (done) !->
+gulp.task \karma, [\dotenv-test], (done) !->
   options =
     configFile: __dirname + '/karma.conf.js'
     singleRun: true
