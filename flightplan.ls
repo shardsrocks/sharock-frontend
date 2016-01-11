@@ -10,4 +10,12 @@ plan.target \production,
 
 
 plan.remote (remote) ->
-  remote.log 'Hello'
+  remote.with 'cd ~/project/sharock-frontend', ->
+    remote.log 'Update files'
+    remote.git 'reset --hard HEAD'
+    remote.git 'fetch origin master'
+    remote.git 'checkout master'
+    remote.git 'rebase origin/master'
+
+    remote.log 'Install dependencies'
+    remote.npm 'install'
