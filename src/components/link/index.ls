@@ -3,7 +3,7 @@ require! {
 }
 
 module.exports =
-  name: \repo-header
+  name: \link
   template: require('./index.jade')()
   props: ['host', 'owner', 'repo']
 
