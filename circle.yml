@@ -5,3 +5,9 @@ machine:
 test:
   pre:
     - cp .env.sample .env
+
+deployment:
+  production:
+    branch: master
+    commands:
+      - npm run deploy

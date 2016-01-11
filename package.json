@@ -9,6 +9,7 @@
     "build-prod": "gulp build-prod",
     "watch": "gulp watch",
     "test": "gulp test",
+    "deploy": "fly",
     "deploy-local": "gulp deploy-local"
   },
   "repository": {
@@ -30,6 +31,7 @@
     "dotenv": "^1.2.0",
     "express": "^4.13.3",
     "file-loader": "^0.8.5",
+    "flightplan": "^0.6.9",
     "gulp": "^3.9.0",
     "gulp-cssnano": "^2.0.0",
     "gulp-dotenv": "^0.1.6",
