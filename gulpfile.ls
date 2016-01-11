@@ -11,12 +11,12 @@ require! {
   'run-sequence'
 }
 
-$ = require('gulp-load-plugins')()
+$ = require('gulp-load-plugins')!
 
 # ----- bootstrap ----------------------------------------------------
 
-console.error('[INFO] Checking `.env` file');
-fs.statSync('.env');
+console.error('[INFO] Checking `.env` file')
+fs.statSync('.env')
 
 
 # ----- webpack ------------------------------------------------------
@@ -61,13 +61,13 @@ gulp.task \webpack-preload, [\dotenv]
 
 run-less = (prod) ->
   gulp.src('src/*.less')
-    .pipe $.plumber()
-    .pipe $.less()
-    .pipe $.if(prod, $.cssnano())
+    .pipe $.plumber!
+    .pipe $.less!
+    .pipe $.if(prod, $.cssnano!)
 
 
 gulp.task \less, ->
-  run-less()
+  run-less!
     .pipe gulp.dest('dist')
 
 
@@ -84,7 +84,7 @@ gulp.task \less-watch, ->
 
 gulp.task \jade, [\dotenv], ->
   gulp.src('src/*.jade')
-    .pipe $.plumber()
+    .pipe $.plumber!
     .pipe $.jade(locals: require-clean('./src/env.json'))
     .pipe gulp.dest('dist')
 
@@ -108,7 +108,7 @@ gulp.task \assets-watch, ->
 
 gulp.task \dotenv, ->
   gulp.src('.env')
-    .pipe $.dotenv()
+    .pipe $.dotenv!
     .pipe $.rename('env.json')
     .pipe gulp.dest('src/')
 
@@ -152,7 +152,7 @@ gulp.task \karma, [\dotenv], (done) !->
     gutil.log "Karma has exited with #{exit-code}"
     process.exit(exit-code)
 
-  new karma.Server(options, on-exit).start()
+  new karma.Server(options, on-exit).start!
 
 
 # ----- test ---------------------------------------------------------
