@@ -1,4 +1,5 @@
 # Sharock Frontend
+[![Circle CI](https://img.shields.io/circleci/project/shardsrocks/sharock-frontend/master.svg)](https://circleci.com/gh/shardsrocks/sharock-frontend/tree/master)
 [![Dependency Status](https://david-dm.org/shardsrocks/sharock-frontend.svg)](https://david-dm.org/shardsrocks/sharock-frontend)
 [![devDependency Status](https://david-dm.org/shardsrocks/sharock-frontend/dev-status.svg)](https://david-dm.org/shardsrocks/sharock-frontend#info=devDependencies)
 
