@@ -8,7 +8,8 @@
     "build": "gulp build",
     "build-prod": "gulp build-prod",
     "watch": "gulp watch",
-    "test": "gulp test"
+    "test": "gulp test",
+    "deploy-local": "gulp deploy-local"
   },
   "repository": {
     "type": "git",
@@ -38,6 +39,7 @@
     "gulp-load-plugins": "^1.1.0",
     "gulp-plumber": "^1.0.1",
     "gulp-rename": "^1.2.2",
+    "gulp-symlink": "^2.1.3",
     "gulp-util": "^3.0.7",
     "jade": "^1.11.0",
     "jade-loader": "^0.8.0",
@@ -55,9 +57,11 @@
     "livescript": "^1.4.0",
     "livescript-loader": "^0.1.5",
     "mocha": "^2.3.4",
+    "moment": "^2.11.1",
     "morgan": "^1.6.1",
     "phantomjs": "^1.9.19",
     "require-clean": "^0.1.3",
+    "require-dir": "^0.3.0",
     "run-sequence": "^1.1.5",
     "style-loader": "^0.13.0",
     "url-loader": "^0.5.7",

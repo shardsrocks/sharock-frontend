@@ -5,3 +5,6 @@ npm-debug.log
 
 /src/env.json
 .env
+
+/versions
+/current

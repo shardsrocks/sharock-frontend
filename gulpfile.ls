@@ -4,6 +4,7 @@ require! {
 
   'prelude-ls': {union}
   'require-clean'
+  'require-dir'
   karma
 
   gulp
@@ -12,6 +13,7 @@ require! {
 }
 
 $ = require('gulp-load-plugins')!
+require-dir('./tasks')
 
 # ----- bootstrap ----------------------------------------------------
 
