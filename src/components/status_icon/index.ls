@@ -6,7 +6,7 @@ WARNING_COLOR = '#F5EA4E'
 ERROR_COLOR   = '#FF734D'
 
 module.exports =
-  name: 'status-icon'
+  name: \status-icon
   props: ['status']
   template: require('./index.jade')()
 

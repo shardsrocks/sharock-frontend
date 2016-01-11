@@ -4,6 +4,7 @@ require! {
 
   'prelude-ls': {union}
   'require-clean'
+  karma
 
   gulp
   'gulp-util': gutil
@@ -138,6 +139,25 @@ gulp.task \watch, ->
     \server,
     [\jade-watch \less-watch \webpack-watch \assets-watch \dotenv-watch]
   )
+
+
+# ----- karma -------------------------------------------------------
+
+gulp.task \karma, [\dotenv], (done) !->
+  options =
+    configFile: __dirname + '/karma.conf.js'
+    singleRun: true
+
+  on-exit = (exit-code) ->
+    gutil.log "Karma has exited with #{exit-code}"
+    process.exit(exit-code)
+
+  new karma.Server(options, on-exit).start()
+
+
+# ----- test ---------------------------------------------------------
+
+gulp.task \test, [\karma]
 
 
 # ----- default ------------------------------------------------------
