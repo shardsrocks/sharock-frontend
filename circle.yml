@@ -2,3 +2,6 @@ machine:
   node:
     version: 4.2.4
 
+test:
+  pre:
+    - cp .env.sample .env
