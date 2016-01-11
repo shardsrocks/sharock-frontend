@@ -143,7 +143,7 @@ gulp.task \watch, ->
 
 # ----- karma -------------------------------------------------------
 
-gulp.task \karma, (done) !->
+gulp.task \karma, [\dotenv], (done) !->
   options =
     configFile: __dirname + '/karma.conf.js'
     singleRun: true
