@@ -1,0 +1,13 @@
+div.sharock-deps-summary
+  p
+    span.sharock-deps-summary-icon
+      sharock-status-icon(:status="'up_to_date'")
+    | Up to date
+  p
+    span.sharock-deps-summary-icon
+      sharock-status-icon(:status="'pinned_out_of_date'")
+    | Pinned, out of date
+  p
+    span.sharock-deps-summary-icon
+      sharock-status-icon(:status="'out_of_date'")
+    | Out of date
