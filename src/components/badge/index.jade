@@ -6,9 +6,9 @@ div.sharock-badge
   p
     img(:src="statusBadgeUrl")
     textarea
-      | [![Dependency Status](https://shards.rocks/badge/github/<your-github-name>/<your-repository-name>/status.svg)](https://shards.rocks/github/<your-github-name>/<your-repository-name>)
+      | [![Dependency Status](https://shards.rocks/badge/{{ host }}/{{ owner }}/{{ repo }}/status.svg)](https://shards.rocks/{{ host }}/{{ owner }}/{{ repo }})
 
   p
     img(:src="devStatusBadgeUrl")
     textarea
-      | [![devDependency Status](https://shards.rocks/badge/github/<your-github-name>/<your-repository-name>/dev_status.svg)](https://shards.rocks/github/<your-github-name>/<your-repository-name>)
+      | [![devDependency Status](https://shards.rocks/badge/{{ host }}/{{ owner }}/{{ repo }}/dev_status.svg)](https://shards.rocks/{{ host }}/{{ owner }}/{{ repo }})

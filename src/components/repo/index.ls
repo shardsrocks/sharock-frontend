@@ -21,6 +21,7 @@ module.exports =
 
   computed:
     path: -> @$route.path
+    badge-path: -> "#{@path}/badge"
     host: -> @$route.name
     owner: -> @$route.params.owner
     repo: -> @$route.params.repo

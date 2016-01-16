@@ -1,6 +1,8 @@
 div.sharock-repo-badge
   span.sharock-repo-badge-status
-    img(:src="statusBadgeUrl")
+    a(v-link="badgePath")
+      img(:src="statusBadgeUrl")
 
   span.sharock-repo-badge-dev-status
-    img(:src="devStatusBadgeUrl")
+    a(v-link="badgePath")
+      img(:src="devStatusBadgeUrl")

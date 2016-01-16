@@ -21,6 +21,9 @@ module.exports = ->
     '/bitbucket/:owner/:repo':
       name: 'bitbucket'
       component: require('./components/repo')
+    '/github/:owner/:repo/badge':
+      name: 'github'
+      component: require('./components/badge')
   )
 
   router
