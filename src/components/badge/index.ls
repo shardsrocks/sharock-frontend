@@ -1,6 +1,7 @@
 require! {
   './index.less': {}
-  '../../config/static': {endpoint}
+  '../../config/static': static-conf
+  '../../config/api': api-conf
 }
 
 
@@ -16,13 +17,13 @@ module.exports =
 
     status-badge-url: ->
       if @has-info
-        "https://shards.rocks/badge/#{@host}/#{@owner}/#{@repo}/status.svg"
+        "#{api-conf.endpoint}/badge/#{@host}/#{@owner}/#{@repo}/status.svg"
       else
-        "#{endpoint}/assets/img/status/up_to_date.svg"
+        "#{static-conf.endpoint}/assets/img/status/up_to_date.svg"
 
     dev-status-badge-url: ->
       if @has-info
-        "https://shards.rocks/badge/#{@host}/#{@owner}/#{@repo}/dev_status.svg"
+        "#{api-conf.endpoint}/badge/#{@host}/#{@owner}/#{@repo}/dev_status.svg"
       else
-        "#{endpoint}/assets/img/status/dev-up_to_date.svg"
+        "#{static-conf.endpoint}/assets/img/status/dev-up_to_date.svg"
 
