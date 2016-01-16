@@ -22,7 +22,6 @@ module.exports = ->
       name: 'bitbucket'
       component: require('./components/repo')
     '/github/:owner/:repo/badge':
-      name: 'github'
       component: require('./components/badge')
   )
 
