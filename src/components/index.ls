@@ -5,6 +5,7 @@ require! {
 Vue.component 'sharock-dependencies', require('./dependencies')
 Vue.component 'sharock-deps-summary', require('./deps_summary')
 Vue.component 'sharock-footer', require('./footer')
+Vue.component 'sharock-getting-started', require('./getting_started')
 Vue.component 'sharock-header', require('./header')
 Vue.component 'sharock-main', require('./main')
 Vue.component 'sharock-link', require('./link')

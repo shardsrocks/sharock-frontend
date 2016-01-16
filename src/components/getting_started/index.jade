@@ -1,0 +1,15 @@
+div.sharock-getting-started
+  h2 Getting Started
+
+  p Let's start Shards Rocks!
+  p Please type your GitHub account and repository.
+
+  form.sharock-getting-started-form(action="#", @submit.stop.prevent="move")
+    span.sharock-getting-started-input
+      input(type="text", placeholder="Your GitHub ID", required, v-model="owner")
+      span.sharock-getting-started-separator /
+      input(type="text", placeholder="Your Crystal Repository", required, v-model="repo")
+
+    button.pure-button.pure-button-primary
+      | Go
+      i.fa.fa-angle-double-right
