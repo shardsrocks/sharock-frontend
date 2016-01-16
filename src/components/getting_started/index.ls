@@ -1,4 +1,7 @@
-require('./index.less')
+require! {
+  lodash: {size}
+  './index.less'
+}
 
 module.exports =
   name: \getting-started
@@ -13,4 +16,6 @@ module.exports =
     path: -> "#{@host}/#{@owner}/#{@repo}"
 
   methods:
-    move: -> @$router.go(@path)
+    move: ->
+      if size(@owner) > 0 and size(@repo) > 0
+        @$router.go(@path)

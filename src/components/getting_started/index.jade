@@ -6,9 +6,9 @@ div.sharock-getting-started
 
   form.sharock-getting-started-form(action="#", @submit.stop.prevent="move")
     span.sharock-getting-started-input
-      input(type="text", placeholder="Your GitHub ID", required, v-model="owner")
+      input(type="text", placeholder="Your GitHub ID", v-model="owner")
       span.sharock-getting-started-separator /
-      input(type="text", placeholder="Your Crystal Repository", required, v-model="repo")
+      input(type="text", placeholder="Your Crystal Repository", v-model="repo")
 
     button.pure-button.pure-button-primary
       | Go
