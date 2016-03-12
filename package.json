@@ -28,13 +28,13 @@
   "license": "MIT",
   "devDependencies": {
     "css-loader": "^0.23.1",
-    "dotenv": "^1.2.0",
+    "dotenv": "^2.0.0",
     "express": "^4.13.3",
     "file-loader": "^0.8.5",
     "flightplan": "^0.6.9",
     "gulp": "^3.9.0",
     "gulp-cssnano": "^2.0.0",
-    "gulp-dotenv": "^0.1.6",
+    "gulp-dotenv": "^0.2.0",
     "gulp-if": "^2.0.0",
     "gulp-jade": "^1.1.0",
     "gulp-less": "^3.0.5",
@@ -48,8 +48,8 @@
     "json-loader": "^0.5.4",
     "karma": "^0.13.19",
     "karma-mocha": "^0.2.1",
-    "karma-mocha-reporter": "^1.1.5",
-    "karma-phantomjs-launcher": "^0.2.3",
+    "karma-mocha-reporter": "^2.0.0",
+    "karma-phantomjs-launcher": "^1.0.0",
     "karma-phantomjs-shim": "^1.2.0",
     "karma-sinon-chai": "^1.1.0",
     "karma-sourcemap-loader": "^0.3.6",
@@ -59,9 +59,9 @@
     "livescript": "^1.4.0",
     "livescript-loader": "^0.1.5",
     "mocha": "^2.3.4",
-    "moment": "^2.11.1",
+    "moment": "^2.12.0",
     "morgan": "^1.6.1",
-    "phantomjs": "^1.9.19",
+    "phantomjs": "^2.1.3",
     "require-clean": "^0.1.3",
     "require-dir": "^0.3.0",
     "run-sequence": "^1.1.5",
@@ -70,10 +70,10 @@
     "webpack": "^1.12.9"
   },
   "dependencies": {
-    "lodash": "^3.10.1",
+    "lodash": "^4.6.1",
     "prelude-ls": "^1.1.2",
     "vue": "^1.0.13",
-    "vue-resource": "^0.6.0",
+    "vue-resource": "^0.7.0",
     "vue-router": "^0.7.7"
   }
 }
